@@ -135,13 +135,13 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <h1><a class="anchor" id="autotoc_md24"></a>
 Build</h1>
 <p>Using Windows (run as admin): </p><div class="fragment"><div class="line">python export-application.py name=noise target=EXECUTABLE path=applications/noise</div>
-<div class="line">cd applications/noise/windows/build</div>
+<div class="line">cd applications/noise/build/windows</div>
 <div class="line">cmake --build .</div>
-<div class="line">cp ../../ini.smd ../bin/ini.smd</div>
+<div class="line">cp ../../ini.smd ../../bin/windows/ini.smd</div>
 </div><!-- fragment --><p>Using Linux: </p><div class="fragment"><div class="line">sudo python3.9 export-application.py name=noise target=EXECUTABLE path=applications/noise</div>
-<div class="line">cd applications/noise/linux/build</div>
+<div class="line">cd applications/noise/build/linux</div>
 <div class="line">sudo cmake --build .</div>
-<div class="line">sudo cp ../../ini.smd ../bin/ini.smd</div>
+<div class="line">cp ../../ini.smd ../../bin/linux/ini.smd</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
 Application tour</h1>
 <p>To change the values of the parameters <code>S</code> <code>A</code> and <code>B</code>:</p>
