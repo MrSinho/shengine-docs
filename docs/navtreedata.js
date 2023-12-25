@@ -44,7 +44,9 @@ var NAVTREE =
     ] ],
     [ "Template code with comments", "md__d_1_2home_2desktop_2github_2shengine_2docs_2src_2native-scripting.html", null ],
     [ "Noise application example", "md__d_1_2home_2desktop_2github_2shengine_2docs_2src_2noise-example.html", [
-      [ "Application tour", "md__d_1_2home_2desktop_2github_2shengine_2docs_2src_2noise-example.html#autotoc_md24", null ]
+      [ "Build", "md__d_1_2home_2desktop_2github_2shengine_2docs_2src_2noise-example.html#autotoc_md24", null ],
+      [ "Application tour", "md__d_1_2home_2desktop_2github_2shengine_2docs_2src_2noise-example.html#autotoc_md25", null ],
+      [ "Example parameters", "md__d_1_2home_2desktop_2github_2shengine_2docs_2src_2noise-example.html#autotoc_md26", null ]
     ] ],
     [ "Linux build logs", "md__d_1_2home_2desktop_2github_2shengine_2_8shci_2linux_2log.html", null ],
     [ "Windows build logs", "md__d_1_2home_2desktop_2github_2shengine_2_8shci_2windows_2log.html", null ],
@@ -73,8 +75,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"sh_input_8h.html#a4fdf92bc6531b51587f0a00e020d943d",
-"sh_window_8h.html#af38cfb138dfa400d6e7182c1060a47de"
+"sh_input_8h.html#a474321fa32b6759f1e8135d95d7032e8",
+"sh_window_8h.html#a98df5b78c98d0f53b1664ed8cf23d69a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

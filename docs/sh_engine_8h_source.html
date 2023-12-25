@@ -150,296 +150,302 @@ $(document).ready(function(){initNavTree('sh_engine_8h_source.html',''); initRes
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="sh_profiling_8h.html">shengine/shProfiling.h</a>&quot;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="sh_input_8h.html">shengine/shInput.h</a>&quot;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="sh_scene_8h.html">shengine/shScene.h</a>&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="sh_application_host_8h.html">shapplication-host/shApplicationHost.h</a>&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="sh_environment_8h.html">shenvironment/shEnvironment.h</a>&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="sh_file_utilities_8h.html">shenvironment/shFileUtilities.h</a>&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;shthreads/shthreads.h&gt;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;smd/smd.h&gt;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"></span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @brief Number of swapchain images in the engine.</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a16a4f73b0c8d001b760c84922204d7e9">   31</a></span><span class="preprocessor">#define SH_ENGINE_SWAPCHAIN_IMAGE_COUNT          2</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"></span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * @brief Maximum number of swapchain images in the engine.</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a15c78bbfd0beb2bcca49fe1a2642e733">   36</a></span><span class="preprocessor">#define SH_ENGINE_MAX_SWAPCHAIN_IMAGE_COUNT      6</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * @brief Number of renderpass attachments in the engine.</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a7530332bb37f06a4f66a86ebc8c49a3f">   41</a></span><span class="preprocessor">#define SH_ENGINE_RENDERPASS_ATTACHMENT_COUNT    3</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * @brief Number of color attachments in a subpass in the engine.</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#aae5cc6dd54a0a1a1b81072c22caf17fd">   46</a></span><span class="preprocessor">#define SH_ENGINE_SUBPASS_COLOR_ATTACHMENT_COUNT 1</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"></span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * @brief Boolean value representing true.</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#ifndef SH_TRUE</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#ifndef __cplusplus</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a3058eadcecb21906098604fd79c65214">   53</a></span><span class="preprocessor">#define SH_TRUE 1</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#define SH_TRUE true</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif</span><span class="comment">//__cplusplus</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif</span><span class="comment">//SH_TRUE</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * @brief Boolean value representing false.</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#ifndef SH_FALSE</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#ifndef __cplusplus</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a4f2eaae3258ecc9d23c25a434fff37f7">   64</a></span><span class="preprocessor">#define SH_FALSE 0</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define SH_FALSE false</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span><span class="comment">//__cplusplus</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif</span><span class="comment">//SH_FALSE</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"></span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * @struct ShEngine</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * @brief Represents the ShEngine structure, which is the main instance of the engine.</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00074" data-start="{" data-end="};">
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="struct_sh_engine.html">   74</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a> {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a4a4bd3222470daf5f0323871e240def3">   75</a></span>    <a class="code hl_struct" href="struct_sh_engine_vk_core.html">ShEngineVkCore</a>           <a class="code hl_variable" href="struct_sh_engine.html#a4a4bd3222470daf5f0323871e240def3">core</a>;                     <span class="comment">/**&lt; Vulkan core instance. */</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a7f277d6a1dfdda77aa1e719da837a59a">   76</a></span>    <a class="code hl_struct" href="struct_sh_window.html">ShWindow</a>                 <a class="code hl_variable" href="struct_sh_engine.html#a7f277d6a1dfdda77aa1e719da837a59a">window</a>;                   <span class="comment">/**&lt; Window properties. */</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#ac45c5af3308819139332cafac0117e42">   77</a></span>    <a class="code hl_struct" href="struct_sh_time.html">ShTime</a>                   <a class="code hl_variable" href="struct_sh_engine.html#ac45c5af3308819139332cafac0117e42">time</a>;                     <span class="comment">/**&lt; Timing information. */</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a267d5c416d95bc2f7f89c7fc14fa42ea">   78</a></span>    <a class="code hl_struct" href="struct_sh_profiling_timer.html">ShProfilingTimer</a>         <a class="code hl_variable" href="struct_sh_engine.html#a267d5c416d95bc2f7f89c7fc14fa42ea">profiling_timer</a>;          <span class="comment">/**&lt; Profiling timer. */</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#aa7850ae0941ab4017ae0355064f260f6">   79</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#aa7850ae0941ab4017ae0355064f260f6">ini_smd</a>;                  <span class="comment">/**&lt; SMD file handle for initialization. */</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a611f0426670f3641f85d51950e9cef41">   80</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a611f0426670f3641f85d51950e9cef41">application_smd</a>;          <span class="comment">/**&lt; SMD file handle for application-specific data. */</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a8fb1853bef9a0cc20e66134e6015f286">   81</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a8fb1853bef9a0cc20e66134e6015f286">host_memory_smd</a>;          <span class="comment">/**&lt; SMD file handle for host memory. */</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a3f9e3a97580a574f8c133338d39b821f">   82</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a3f9e3a97580a574f8c133338d39b821f">vulkan_memory_smd</a>;        <span class="comment">/**&lt; SMD file handle for Vulkan memory. */</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a0acef8d8ed3aa259b79e315978f19331">   83</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a0acef8d8ed3aa259b79e315978f19331">serial_smd</a>;               <span class="comment">/**&lt; SMD file handle for serialization. */</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a456177ea586f381f21c9f887f7566be9">   84</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a456177ea586f381f21c9f887f7566be9">scene_smd</a>;                <span class="comment">/**&lt; SMD file handle for scene-related data. */</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a1547b8530fd6a13a0fce5b026523079f">   85</a></span>    <a class="code hl_struct" href="struct_sh_ini_properties.html">ShIniProperties</a>          <a class="code hl_variable" href="struct_sh_engine.html#a1547b8530fd6a13a0fce5b026523079f">ini_properties</a>;           <span class="comment">/**&lt; Initialization properties. */</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a544fee1a5521c3818820f5649e404941">   86</a></span>    <a class="code hl_struct" href="struct_sh_application_properties.html">ShApplicationProperties</a>  <a class="code hl_variable" href="struct_sh_engine.html#a544fee1a5521c3818820f5649e404941">application_properties</a>;   <span class="comment">/**&lt; Application properties. */</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#adb905253268ca6255842198e78c54c4d">   87</a></span>    <a class="code hl_struct" href="struct_sh_host_memory_properties.html">ShHostMemoryProperties</a>   <a class="code hl_variable" href="struct_sh_engine.html#adb905253268ca6255842198e78c54c4d">host_memory_properties</a>;   <span class="comment">/**&lt; Host memory properties. */</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a465327449137d48b28b72c066b6fc70d">   88</a></span>    <a class="code hl_struct" href="struct_sh_vulkan_memory_properties.html">ShVulkanMemoryProperties</a> <a class="code hl_variable" href="struct_sh_engine.html#a465327449137d48b28b72c066b6fc70d">vulkan_memory_properties</a>; <span class="comment">/**&lt; Vulkan memory properties. */</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#afae29c87a6530652ecc6832bd27a08d1">   89</a></span>    <a class="code hl_struct" href="struct_sh_serial_properties.html">ShSerialProperties</a>       <a class="code hl_variable" href="struct_sh_engine.html#afae29c87a6530652ecc6832bd27a08d1">serial_properties</a>;        <span class="comment">/**&lt; Serialization properties. */</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a86c5eaf97bce63ccb1952b4c3ed79054">   90</a></span>    <a class="code hl_struct" href="struct_sh_scene_properties.html">ShSceneProperties</a>        <a class="code hl_variable" href="struct_sh_engine.html#a86c5eaf97bce63ccb1952b4c3ed79054">scene_properties</a>;         <span class="comment">/**&lt; Scene properties. */</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#aafe79497fec8ebd5e4c408b79930648a">   91</a></span>    uint8_t                  <a class="code hl_variable" href="struct_sh_engine.html#aafe79497fec8ebd5e4c408b79930648a">load_shared</a>;              <span class="comment">/**&lt; Flag indicating whether to load shared resources. */</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a6e5865161b3d080c8927017b41bcf66b">   92</a></span>    <a class="code hl_struct" href="struct_sh_application_host.html">ShApplicationHost</a>        <a class="code hl_variable" href="struct_sh_engine.html#a6e5865161b3d080c8927017b41bcf66b">application_host</a>;         <span class="comment">/**&lt; Application host information. */</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a623f10841a2eac72f39f53333b2cbea0">   93</a></span>    ShThreadPool             <a class="code hl_variable" href="struct_sh_engine.html#a623f10841a2eac72f39f53333b2cbea0">thread_pool</a>;              <span class="comment">/**&lt; Thread pool for parallel processing. */</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#aba25e3c04149bfd46a27a26e2f2f58d0">   94</a></span>    ShVkPipelinePool         <a class="code hl_variable" href="struct_sh_engine.html#aba25e3c04149bfd46a27a26e2f2f58d0">pipeline_pool</a>;            <span class="comment">/**&lt; Vulkan pipeline pool. */</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a4a8a194d1419f6e7fbac9c2e9a6a5b03">   95</a></span>    <span class="keywordtype">void</span>*                    <a class="code hl_variable" href="struct_sh_engine.html#a4a8a194d1419f6e7fbac9c2e9a6a5b03">p_ext</a>;                    <span class="comment">/**&lt; Additional extension pointer. */</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#af38cfb138dfa400d6e7182c1060a47de">   96</a></span>} <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="sh_engine_u_i_8h.html">shengine/shEngineUI.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="sh_application_host_8h.html">shapplication-host/shApplicationHost.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="sh_environment_8h.html">shenvironment/shEnvironment.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="sh_file_utilities_8h.html">shenvironment/shFileUtilities.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;shthreads/shthreads.h&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;smd/smd.h&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"></span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @brief Number of swapchain images in the engine.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a16a4f73b0c8d001b760c84922204d7e9">   35</a></span><span class="preprocessor">#define SH_ENGINE_SWAPCHAIN_IMAGE_COUNT          2</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * @brief Maximum number of swapchain images in the engine.</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a15c78bbfd0beb2bcca49fe1a2642e733">   40</a></span><span class="preprocessor">#define SH_ENGINE_MAX_SWAPCHAIN_IMAGE_COUNT      6</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * @brief Number of renderpass attachments in the engine.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a7530332bb37f06a4f66a86ebc8c49a3f">   45</a></span><span class="preprocessor">#define SH_ENGINE_RENDERPASS_ATTACHMENT_COUNT    3</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"></span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @brief Number of color attachments in a subpass in the engine.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#aae5cc6dd54a0a1a1b81072c22caf17fd">   50</a></span><span class="preprocessor">#define SH_ENGINE_SUBPASS_COLOR_ATTACHMENT_COUNT 1</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * @brief Boolean value representing true.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#ifndef SH_TRUE</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#ifndef __cplusplus</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a3058eadcecb21906098604fd79c65214">   57</a></span><span class="preprocessor">#define SH_TRUE 1</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#define SH_TRUE true</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif</span><span class="comment">//__cplusplus</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif</span><span class="comment">//SH_TRUE</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * @brief Boolean value representing false.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#ifndef SH_FALSE</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#ifndef __cplusplus</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a4f2eaae3258ecc9d23c25a434fff37f7">   68</a></span><span class="preprocessor">#define SH_FALSE 0</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define SH_FALSE false</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif</span><span class="comment">//__cplusplus</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif</span><span class="comment">//SH_FALSE</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"></span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * @struct ShEngine</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * @brief Represents the ShEngine structure, which is the main instance of the engine.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="};">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="struct_sh_engine.html">   78</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a> {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a4a4bd3222470daf5f0323871e240def3">   79</a></span>    <a class="code hl_struct" href="struct_sh_engine_vk_core.html">ShEngineVkCore</a>           <a class="code hl_variable" href="struct_sh_engine.html#a4a4bd3222470daf5f0323871e240def3">core</a>;                     <span class="comment">/**&lt; Vulkan core instance. */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a7f277d6a1dfdda77aa1e719da837a59a">   80</a></span>    <a class="code hl_struct" href="struct_sh_window.html">ShWindow</a>                 <a class="code hl_variable" href="struct_sh_engine.html#a7f277d6a1dfdda77aa1e719da837a59a">window</a>;                   <span class="comment">/**&lt; Window properties. */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#ac45c5af3308819139332cafac0117e42">   81</a></span>    <a class="code hl_struct" href="struct_sh_time.html">ShTime</a>                   <a class="code hl_variable" href="struct_sh_engine.html#ac45c5af3308819139332cafac0117e42">time</a>;                     <span class="comment">/**&lt; Timing information. */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a267d5c416d95bc2f7f89c7fc14fa42ea">   82</a></span>    <a class="code hl_struct" href="struct_sh_profiling_timer.html">ShProfilingTimer</a>         <a class="code hl_variable" href="struct_sh_engine.html#a267d5c416d95bc2f7f89c7fc14fa42ea">profiling_timer</a>;          <span class="comment">/**&lt; Profiling timer. */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#aa7850ae0941ab4017ae0355064f260f6">   83</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#aa7850ae0941ab4017ae0355064f260f6">ini_smd</a>;                  <span class="comment">/**&lt; SMD file handle for initialization. */</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a611f0426670f3641f85d51950e9cef41">   84</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a611f0426670f3641f85d51950e9cef41">application_smd</a>;          <span class="comment">/**&lt; SMD file handle for application-specific data. */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a8fb1853bef9a0cc20e66134e6015f286">   85</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a8fb1853bef9a0cc20e66134e6015f286">host_memory_smd</a>;          <span class="comment">/**&lt; SMD file handle for host memory. */</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a3f9e3a97580a574f8c133338d39b821f">   86</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a3f9e3a97580a574f8c133338d39b821f">vulkan_memory_smd</a>;        <span class="comment">/**&lt; SMD file handle for Vulkan memory. */</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a0acef8d8ed3aa259b79e315978f19331">   87</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a0acef8d8ed3aa259b79e315978f19331">serial_smd</a>;               <span class="comment">/**&lt; SMD file handle for serialization. */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a456177ea586f381f21c9f887f7566be9">   88</a></span>    SmdFileHandle            <a class="code hl_variable" href="struct_sh_engine.html#a456177ea586f381f21c9f887f7566be9">scene_smd</a>;                <span class="comment">/**&lt; SMD file handle for scene-related data. */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a1547b8530fd6a13a0fce5b026523079f">   89</a></span>    <a class="code hl_struct" href="struct_sh_ini_properties.html">ShIniProperties</a>          <a class="code hl_variable" href="struct_sh_engine.html#a1547b8530fd6a13a0fce5b026523079f">ini_properties</a>;           <span class="comment">/**&lt; Initialization properties. */</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a544fee1a5521c3818820f5649e404941">   90</a></span>    <a class="code hl_struct" href="struct_sh_application_properties.html">ShApplicationProperties</a>  <a class="code hl_variable" href="struct_sh_engine.html#a544fee1a5521c3818820f5649e404941">application_properties</a>;   <span class="comment">/**&lt; Application properties. */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#adb905253268ca6255842198e78c54c4d">   91</a></span>    <a class="code hl_struct" href="struct_sh_host_memory_properties.html">ShHostMemoryProperties</a>   <a class="code hl_variable" href="struct_sh_engine.html#adb905253268ca6255842198e78c54c4d">host_memory_properties</a>;   <span class="comment">/**&lt; Host memory properties. */</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a465327449137d48b28b72c066b6fc70d">   92</a></span>    <a class="code hl_struct" href="struct_sh_vulkan_memory_properties.html">ShVulkanMemoryProperties</a> <a class="code hl_variable" href="struct_sh_engine.html#a465327449137d48b28b72c066b6fc70d">vulkan_memory_properties</a>; <span class="comment">/**&lt; Vulkan memory properties. */</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#afae29c87a6530652ecc6832bd27a08d1">   93</a></span>    <a class="code hl_struct" href="struct_sh_serial_properties.html">ShSerialProperties</a>       <a class="code hl_variable" href="struct_sh_engine.html#afae29c87a6530652ecc6832bd27a08d1">serial_properties</a>;        <span class="comment">/**&lt; Serialization properties. */</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a86c5eaf97bce63ccb1952b4c3ed79054">   94</a></span>    <a class="code hl_struct" href="struct_sh_scene_properties.html">ShSceneProperties</a>        <a class="code hl_variable" href="struct_sh_engine.html#a86c5eaf97bce63ccb1952b4c3ed79054">scene_properties</a>;         <span class="comment">/**&lt; Scene properties. */</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#aafe79497fec8ebd5e4c408b79930648a">   95</a></span>    uint8_t                  <a class="code hl_variable" href="struct_sh_engine.html#aafe79497fec8ebd5e4c408b79930648a">load_shared</a>;              <span class="comment">/**&lt; Flag indicating whether to load shared resources. */</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a6e5865161b3d080c8927017b41bcf66b">   96</a></span>    <a class="code hl_struct" href="struct_sh_application_host.html">ShApplicationHost</a>        <a class="code hl_variable" href="struct_sh_engine.html#a6e5865161b3d080c8927017b41bcf66b">application_host</a>;         <span class="comment">/**&lt; Application host information. */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a623f10841a2eac72f39f53333b2cbea0">   97</a></span>    ShThreadPool             <a class="code hl_variable" href="struct_sh_engine.html#a623f10841a2eac72f39f53333b2cbea0">thread_pool</a>;              <span class="comment">/**&lt; Thread pool for parallel processing. */</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#aba25e3c04149bfd46a27a26e2f2f58d0">   98</a></span>    ShVkPipelinePool         <a class="code hl_variable" href="struct_sh_engine.html#aba25e3c04149bfd46a27a26e2f2f58d0">pipeline_pool</a>;            <span class="comment">/**&lt; Vulkan pipeline pool. */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#ad8e9d07c92f424d832ba123b30181397">   99</a></span>    ShGui                    <a class="code hl_variable" href="struct_sh_engine.html#ad8e9d07c92f424d832ba123b30181397">gui</a>;                      <span class="comment">/**&lt; Main gui structure. */</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="struct_sh_engine.html#a4a8a194d1419f6e7fbac9c2e9a6a5b03">  100</a></span>    <span class="keywordtype">void</span>*                    <a class="code hl_variable" href="struct_sh_engine.html#a4a8a194d1419f6e7fbac9c2e9a6a5b03">p_ext</a>;                    <span class="comment">/**&lt; Additional extension pointer. */</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#af38cfb138dfa400d6e7182c1060a47de">  101</a></span>} <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>;</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * @brief Allocates memory for a new ShEngine instance.</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * @return A pointer to the allocated ShEngine structure.</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a6c066fea680d32a8c4896cd6943ebf42">  103</a></span><span class="preprocessor">#define shAllocateEngine() (ShEngine*)calloc(1, sizeof(ShEngine));</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * @brief Frees the memory of a ShEngine instance.</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#aead79da9d910e6ea9d4d7a954aa8d693">  110</a></span><span class="preprocessor">#define shFreeEngine(p_engine) free(p_engine); (p_engine) = NULL</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"></span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> * @brief Generates an error message for the `shengine` module.</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> * @param condition The condition to check.</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"> * @param msg The error message.</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> * @param failure_expression The expression to execute in case of failure.</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00119" data-start="" data-end="">
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a708dc5632bbcb81d21b109c398f8e446">  119</a></span><span class="preprocessor">#define shEngineError(condition, msg, failure_expression) \</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">    if ((int)(condition)) { printf(&quot;shengine error: %s.\n&quot;, msg); failure_expression; }</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"></span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> * @brief Allocates memory for a new ShEngine instance.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * @return A pointer to the allocated ShEngine structure.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a6c066fea680d32a8c4896cd6943ebf42">  108</a></span><span class="preprocessor">#define shAllocateEngine() (ShEngine*)calloc(1, sizeof(ShEngine));</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"></span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"> * @brief Frees the memory of a ShEngine instance.</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#aead79da9d910e6ea9d4d7a954aa8d693">  115</a></span><span class="preprocessor">#define shFreeEngine(p_engine) free(p_engine); (p_engine) = NULL</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"></span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * @brief Generates an error message for the `shengine` module.</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * @param condition The condition to check.</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> * @param msg The error message.</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> * @param failure_expression The expression to execute in case of failure.</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00124" data-start="" data-end="">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a708dc5632bbcb81d21b109c398f8e446">  124</a></span><span class="preprocessor">#define shEngineError(condition, msg, failure_expression) \</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">    if ((int)(condition)) { printf(&quot;shengine error: %s.\n&quot;, msg); failure_expression; }</span></div>
 </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"></span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> * @brief Generates an error message for the ShApplication.</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment"> * @param condition The condition to check.</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment"> * @param msg The error message.</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"> * @param failure_expression The expression to execute in case of failure.</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00129" data-start="" data-end="">
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#ac20dd0c896355d7a23d07c65c6d26ad9">  129</a></span><span class="preprocessor">#define shApplicationError(condition, msg, failure_expression) \</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">    if ((int)(condition)) { printf(&quot;shapplication error: %s. \n&quot;, msg); failure_expression; }</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment"></span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"> * @brief Generates an error message for the ShApplication.</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> * @param condition The condition to check.</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> * @param msg The error message.</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"> * @param failure_expression The expression to execute in case of failure.</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00134" data-start="" data-end="">
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#ac20dd0c896355d7a23d07c65c6d26ad9">  134</a></span><span class="preprocessor">#define shApplicationError(condition, msg, failure_expression) \</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="preprocessor">    if ((int)(condition)) { printf(&quot;shapplication error: %s. \n&quot;, msg); failure_expression; }</span></div>
 </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"></span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"> * @brief Represents the engine being ready.</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a354a494853f7d06d15807dc77ee10bbe">  135</a></span><span class="preprocessor">#define SH_ENGINE_READY     1</span></div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"></span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> * @brief Represents the engine not being ready.</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> * @brief Represents the engine being ready.</span></div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#ab96604ad40386d46ce4c6a8530006c0c">  140</a></span><span class="preprocessor">#define SH_ENGINE_NOT_READY 0</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment"></span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment"> * @brief Sets up Vulkan for the `shengine` module.</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a35c281e8d5bf94961577a3bd25967f35">shEngineSetupVulkan</a>(</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"></span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment"> * @brief Allocates a profiling handle for the `shengine` module.</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a2ce174c7eacfbe4f0345775010607756">  162</a></span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a2ce174c7eacfbe4f0345775010607756">shAllocateProfilingHandle</a>(</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>);</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment"></span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment"> * @brief Sets the state of the `shengine` module.</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a0b49755b1f1f3442e28b1034777f7b64">shSetEngineState</a>(</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"></span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"> * @brief Resets the state of the `shengine` module.</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a1f30902e9efae865da7e4432748256b0">shResetEngineState</a>(</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>);</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment"></span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment"> * @brief Safely sets the state of the `shengine` module.</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a6ebb7736bda8958c414cb4d0e6e584f3">shEngineSafeState</a>(</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"></span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment"> * @brief Resizes the frame in the `shengine` module.</span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a609c920f1a67f096f13ebb841eeb86ba">shEngineFrameResize</a>(</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>);</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment"></span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment"> * @brief Updates the profiling in the `shengine` module.</span></div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a4fb9119148c65faba3d6d3a682dfed94">shEngineProfilingUpdate</a>(</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>);</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"></span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment"> * @brief Updates Vulkan in the `shengine` module.</span></div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a4eaf7201a07cc7f6f098fabd497e222d">shEngineVulkanUpdate</a>(</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>);</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment"></span> </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment"> * @brief Updates the state of the `shengine` module.</span></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a7ea687645099ecbeb6a903e91c4d66a6">shEngineUpdateState</a>(</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>);</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment"></span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment"> * @brief Manages the state of the `shengine` module.</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment"> * @param ready State of the engine.</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a66bd85231743c4baabcd327a14434d2a">shEngineManageState</a>(</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine, </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    uint8_t   ready   </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>);</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment"></span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment"> * @brief Releases Vulkan resources in the `shengine` module.</span></div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#adc2d18217f6947936475c931bf432d61">shEngineVulkanRelease</a>(</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>);</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="comment"></span> </div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment"> * @brief Releases resources in the `shengine` module.</span></div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a699644c1468ff4d7c411df097164fc22">shEngineRelease</a>(</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>);</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment"></span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="comment"> * @brief Shuts down the `shengine` module.</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="sh_engine_8h.html#a80bca6bd7cfe400512bf8bba1dd63f8f">shEngineShutdown</a>(</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>);</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>}</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="preprocessor">#endif</span><span class="comment">//__cplusplus</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a354a494853f7d06d15807dc77ee10bbe">  140</a></span><span class="preprocessor">#define SH_ENGINE_READY     1</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"></span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment"> * @brief Represents the engine not being ready.</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#ab96604ad40386d46ce4c6a8530006c0c">  145</a></span><span class="preprocessor">#define SH_ENGINE_NOT_READY 0</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"></span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> * @brief Sets up Vulkan for the `shengine` module.</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a35c281e8d5bf94961577a3bd25967f35">shEngineSetupVulkan</a>(</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment"></span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment"> * @brief Allocates a profiling handle for the `shengine` module.</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="sh_engine_8h.html#a2ce174c7eacfbe4f0345775010607756">  167</a></span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a2ce174c7eacfbe4f0345775010607756">shAllocateProfilingHandle</a>(</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"></span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> * @brief Sets the state of the `shengine` module.</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a0b49755b1f1f3442e28b1034777f7b64">shSetEngineState</a>(</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment"></span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment"> * @brief Resets the state of the `shengine` module.</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a1f30902e9efae865da7e4432748256b0">shResetEngineState</a>(</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment"></span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment"> * @brief Safely sets the state of the `shengine` module.</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a6ebb7736bda8958c414cb4d0e6e584f3">shEngineSafeState</a>(</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment"></span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment"> * @brief Resizes the frame in the `shengine` module.</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a609c920f1a67f096f13ebb841eeb86ba">shEngineFrameResize</a>(</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment"></span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment"> * @brief Updates the profiling in the `shengine` module.</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a4fb9119148c65faba3d6d3a682dfed94">shEngineProfilingUpdate</a>(</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment"></span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment"> * @brief Updates Vulkan in the `shengine` module.</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a4eaf7201a07cc7f6f098fabd497e222d">shEngineVulkanUpdate</a>(</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment"></span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment"> * @brief Updates the state of the `shengine` module.</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a7ea687645099ecbeb6a903e91c4d66a6">shEngineUpdateState</a>(</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment"></span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment"> * @brief Manages the state of the `shengine` module.</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment"> * @param ready State of the engine.</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a66bd85231743c4baabcd327a14434d2a">shEngineManageState</a>(</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine, </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    uint8_t   ready   </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="comment"></span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="comment"> * @brief Releases Vulkan resources in the `shengine` module.</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="comment"> * @return Integer status code indicating the success or failure of the operation.</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#adc2d18217f6947936475c931bf432d61">shEngineVulkanRelease</a>(</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment"></span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="comment"> * @brief Releases resources in the `shengine` module.</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="keyword">extern</span> uint8_t <a class="code hl_function" href="sh_engine_8h.html#a699644c1468ff4d7c411df097164fc22">shEngineRelease</a>(</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="comment"></span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="comment"> * @brief Shuts down the `shengine` module.</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment"> * @param p_engine Valid pointer to a @ref ShEngine structure.</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="sh_engine_8h.html#a80bca6bd7cfe400512bf8bba1dd63f8f">shEngineShutdown</a>(</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <a class="code hl_struct" href="struct_sh_engine.html">ShEngine</a>* p_engine </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="preprocessor">#endif</span><span class="comment">//SH_ENGINE_H</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>}</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="preprocessor">#endif</span><span class="comment">//__cplusplus</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="preprocessor">#endif</span><span class="comment">//SH_ENGINE_H</span></div>
 <div class="ttc" id="ash_application_host_8h_html"><div class="ttname"><a href="sh_application_host_8h.html">shApplicationHost.h</a></div><div class="ttdoc">Platform-specific shared library loading functions.</div></div>
 <div class="ttc" id="ash_engine_8h_html_a0b49755b1f1f3442e28b1034777f7b64"><div class="ttname"><a href="sh_engine_8h.html#a0b49755b1f1f3442e28b1034777f7b64">shSetEngineState</a></div><div class="ttdeci">uint8_t shSetEngineState(ShEngine *p_engine)</div><div class="ttdoc">Sets the state of the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:408</div></div>
 <div class="ttc" id="ash_engine_8h_html_a1f30902e9efae865da7e4432748256b0"><div class="ttname"><a href="sh_engine_8h.html#a1f30902e9efae865da7e4432748256b0">shResetEngineState</a></div><div class="ttdeci">uint8_t shResetEngineState(ShEngine *p_engine)</div><div class="ttdoc">Resets the state of the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:567</div></div>
 <div class="ttc" id="ash_engine_8h_html_a2ce174c7eacfbe4f0345775010607756"><div class="ttname"><a href="sh_engine_8h.html#a2ce174c7eacfbe4f0345775010607756">shAllocateProfilingHandle</a></div><div class="ttdeci">uint8_t shAllocateProfilingHandle(ShEngine *p_engine)</div><div class="ttdoc">Allocates a profiling handle for the shengine module.</div></div>
 <div class="ttc" id="ash_engine_8h_html_a35c281e8d5bf94961577a3bd25967f35"><div class="ttname"><a href="sh_engine_8h.html#a35c281e8d5bf94961577a3bd25967f35">shEngineSetupVulkan</a></div><div class="ttdeci">uint8_t shEngineSetupVulkan(ShEngine *p_engine)</div><div class="ttdoc">Sets up Vulkan for the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:17</div></div>
-<div class="ttc" id="ash_engine_8h_html_a4eaf7201a07cc7f6f098fabd497e222d"><div class="ttname"><a href="sh_engine_8h.html#a4eaf7201a07cc7f6f098fabd497e222d">shEngineVulkanUpdate</a></div><div class="ttdeci">uint8_t shEngineVulkanUpdate(ShEngine *p_engine)</div><div class="ttdoc">Updates Vulkan in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:737</div></div>
-<div class="ttc" id="ash_engine_8h_html_a4fb9119148c65faba3d6d3a682dfed94"><div class="ttname"><a href="sh_engine_8h.html#a4fb9119148c65faba3d6d3a682dfed94">shEngineProfilingUpdate</a></div><div class="ttdeci">uint8_t shEngineProfilingUpdate(ShEngine *p_engine)</div><div class="ttdoc">Updates the profiling in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:702</div></div>
+<div class="ttc" id="ash_engine_8h_html_a4eaf7201a07cc7f6f098fabd497e222d"><div class="ttname"><a href="sh_engine_8h.html#a4eaf7201a07cc7f6f098fabd497e222d">shEngineVulkanUpdate</a></div><div class="ttdeci">uint8_t shEngineVulkanUpdate(ShEngine *p_engine)</div><div class="ttdoc">Updates Vulkan in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:769</div></div>
+<div class="ttc" id="ash_engine_8h_html_a4fb9119148c65faba3d6d3a682dfed94"><div class="ttname"><a href="sh_engine_8h.html#a4fb9119148c65faba3d6d3a682dfed94">shEngineProfilingUpdate</a></div><div class="ttdeci">uint8_t shEngineProfilingUpdate(ShEngine *p_engine)</div><div class="ttdoc">Updates the profiling in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:734</div></div>
 <div class="ttc" id="ash_engine_8h_html_a609c920f1a67f096f13ebb841eeb86ba"><div class="ttname"><a href="sh_engine_8h.html#a609c920f1a67f096f13ebb841eeb86ba">shEngineFrameResize</a></div><div class="ttdeci">uint8_t shEngineFrameResize(ShEngine *p_engine)</div><div class="ttdoc">Resizes the frame in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:577</div></div>
-<div class="ttc" id="ash_engine_8h_html_a66bd85231743c4baabcd327a14434d2a"><div class="ttname"><a href="sh_engine_8h.html#a66bd85231743c4baabcd327a14434d2a">shEngineManageState</a></div><div class="ttdeci">uint8_t shEngineManageState(ShEngine *p_engine, uint8_t ready)</div><div class="ttdoc">Manages the state of the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:879</div></div>
-<div class="ttc" id="ash_engine_8h_html_a699644c1468ff4d7c411df097164fc22"><div class="ttname"><a href="sh_engine_8h.html#a699644c1468ff4d7c411df097164fc22">shEngineRelease</a></div><div class="ttdeci">uint8_t shEngineRelease(ShEngine *p_engine)</div><div class="ttdoc">Releases resources in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:942</div></div>
+<div class="ttc" id="ash_engine_8h_html_a66bd85231743c4baabcd327a14434d2a"><div class="ttname"><a href="sh_engine_8h.html#a66bd85231743c4baabcd327a14434d2a">shEngineManageState</a></div><div class="ttdeci">uint8_t shEngineManageState(ShEngine *p_engine, uint8_t ready)</div><div class="ttdoc">Manages the state of the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:925</div></div>
+<div class="ttc" id="ash_engine_8h_html_a699644c1468ff4d7c411df097164fc22"><div class="ttname"><a href="sh_engine_8h.html#a699644c1468ff4d7c411df097164fc22">shEngineRelease</a></div><div class="ttdeci">uint8_t shEngineRelease(ShEngine *p_engine)</div><div class="ttdoc">Releases resources in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:988</div></div>
 <div class="ttc" id="ash_engine_8h_html_a6ebb7736bda8958c414cb4d0e6e584f3"><div class="ttname"><a href="sh_engine_8h.html#a6ebb7736bda8958c414cb4d0e6e584f3">shEngineSafeState</a></div><div class="ttdeci">uint8_t shEngineSafeState(ShEngine *p_engine)</div><div class="ttdoc">Safely sets the state of the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:374</div></div>
-<div class="ttc" id="ash_engine_8h_html_a7ea687645099ecbeb6a903e91c4d66a6"><div class="ttname"><a href="sh_engine_8h.html#a7ea687645099ecbeb6a903e91c4d66a6">shEngineUpdateState</a></div><div class="ttdeci">uint8_t shEngineUpdateState(ShEngine *p_engine)</div><div class="ttdoc">Updates the state of the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:836</div></div>
-<div class="ttc" id="ash_engine_8h_html_a80bca6bd7cfe400512bf8bba1dd63f8f"><div class="ttname"><a href="sh_engine_8h.html#a80bca6bd7cfe400512bf8bba1dd63f8f">shEngineShutdown</a></div><div class="ttdeci">void shEngineShutdown(ShEngine *p_engine)</div><div class="ttdoc">Shuts down the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:1013</div></div>
-<div class="ttc" id="ash_engine_8h_html_adc2d18217f6947936475c931bf432d61"><div class="ttname"><a href="sh_engine_8h.html#adc2d18217f6947936475c931bf432d61">shEngineVulkanRelease</a></div><div class="ttdeci">uint8_t shEngineVulkanRelease(ShEngine *p_engine)</div><div class="ttdoc">Releases Vulkan resources in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:899</div></div>
+<div class="ttc" id="ash_engine_8h_html_a7ea687645099ecbeb6a903e91c4d66a6"><div class="ttname"><a href="sh_engine_8h.html#a7ea687645099ecbeb6a903e91c4d66a6">shEngineUpdateState</a></div><div class="ttdeci">uint8_t shEngineUpdateState(ShEngine *p_engine)</div><div class="ttdoc">Updates the state of the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:882</div></div>
+<div class="ttc" id="ash_engine_8h_html_a80bca6bd7cfe400512bf8bba1dd63f8f"><div class="ttname"><a href="sh_engine_8h.html#a80bca6bd7cfe400512bf8bba1dd63f8f">shEngineShutdown</a></div><div class="ttdeci">void shEngineShutdown(ShEngine *p_engine)</div><div class="ttdoc">Shuts down the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:1060</div></div>
+<div class="ttc" id="ash_engine_8h_html_adc2d18217f6947936475c931bf432d61"><div class="ttname"><a href="sh_engine_8h.html#adc2d18217f6947936475c931bf432d61">shEngineVulkanRelease</a></div><div class="ttdeci">uint8_t shEngineVulkanRelease(ShEngine *p_engine)</div><div class="ttdoc">Releases Vulkan resources in the shengine module.</div><div class="ttdef"><b>Definition</b> shEngine.c:945</div></div>
+<div class="ttc" id="ash_engine_u_i_8h_html"><div class="ttname"><a href="sh_engine_u_i_8h.html">shEngineUI.h</a></div><div class="ttdoc">Declares functions related to setting up the graphical user interface (GUI) for the shengine module.</div></div>
 <div class="ttc" id="ash_engine_vk_core_8h_html"><div class="ttname"><a href="sh_engine_vk_core_8h.html">shEngineVkCore.h</a></div></div>
 <div class="ttc" id="ash_environment_8h_html"><div class="ttname"><a href="sh_environment_8h.html">shEnvironment.h</a></div><div class="ttdoc">Handling environment descriptor functionalities in the shengine framework.</div></div>
 <div class="ttc" id="ash_file_utilities_8h_html"><div class="ttname"><a href="sh_file_utilities_8h.html">shFileUtilities.h</a></div></div>
@@ -450,28 +456,29 @@ $(document).ready(function(){initNavTree('sh_engine_8h_source.html',''); initRes
 <div class="ttc" id="ash_window_8h_html"><div class="ttname"><a href="sh_window_8h.html">shWindow.h</a></div><div class="ttdoc">Handling window-related functionalities in the shengine framework.</div></div>
 <div class="ttc" id="astruct_sh_application_host_html"><div class="ttname"><a href="struct_sh_application_host.html">ShApplicationHost</a></div><div class="ttdoc">Represents the host for a shared application.</div><div class="ttdef"><b>Definition</b> shApplicationHost.h:121</div></div>
 <div class="ttc" id="astruct_sh_application_properties_html"><div class="ttname"><a href="struct_sh_application_properties.html">ShApplicationProperties</a></div><div class="ttdoc">Structure representing properties related to the application.</div><div class="ttdef"><b>Definition</b> shEnvironment.h:65</div></div>
-<div class="ttc" id="astruct_sh_engine_html"><div class="ttname"><a href="struct_sh_engine.html">ShEngine</a></div><div class="ttdoc">Represents the ShEngine structure, which is the main instance of the engine.</div><div class="ttdef"><b>Definition</b> shEngine.h:74</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a0acef8d8ed3aa259b79e315978f19331"><div class="ttname"><a href="struct_sh_engine.html#a0acef8d8ed3aa259b79e315978f19331">ShEngine::serial_smd</a></div><div class="ttdeci">SmdFileHandle serial_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:83</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a1547b8530fd6a13a0fce5b026523079f"><div class="ttname"><a href="struct_sh_engine.html#a1547b8530fd6a13a0fce5b026523079f">ShEngine::ini_properties</a></div><div class="ttdeci">ShIniProperties ini_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:85</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a267d5c416d95bc2f7f89c7fc14fa42ea"><div class="ttname"><a href="struct_sh_engine.html#a267d5c416d95bc2f7f89c7fc14fa42ea">ShEngine::profiling_timer</a></div><div class="ttdeci">ShProfilingTimer profiling_timer</div><div class="ttdef"><b>Definition</b> shEngine.h:78</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a3f9e3a97580a574f8c133338d39b821f"><div class="ttname"><a href="struct_sh_engine.html#a3f9e3a97580a574f8c133338d39b821f">ShEngine::vulkan_memory_smd</a></div><div class="ttdeci">SmdFileHandle vulkan_memory_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:82</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a456177ea586f381f21c9f887f7566be9"><div class="ttname"><a href="struct_sh_engine.html#a456177ea586f381f21c9f887f7566be9">ShEngine::scene_smd</a></div><div class="ttdeci">SmdFileHandle scene_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:84</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a465327449137d48b28b72c066b6fc70d"><div class="ttname"><a href="struct_sh_engine.html#a465327449137d48b28b72c066b6fc70d">ShEngine::vulkan_memory_properties</a></div><div class="ttdeci">ShVulkanMemoryProperties vulkan_memory_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:88</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a4a4bd3222470daf5f0323871e240def3"><div class="ttname"><a href="struct_sh_engine.html#a4a4bd3222470daf5f0323871e240def3">ShEngine::core</a></div><div class="ttdeci">ShEngineVkCore core</div><div class="ttdef"><b>Definition</b> shEngine.h:75</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a4a8a194d1419f6e7fbac9c2e9a6a5b03"><div class="ttname"><a href="struct_sh_engine.html#a4a8a194d1419f6e7fbac9c2e9a6a5b03">ShEngine::p_ext</a></div><div class="ttdeci">void * p_ext</div><div class="ttdef"><b>Definition</b> shEngine.h:95</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a544fee1a5521c3818820f5649e404941"><div class="ttname"><a href="struct_sh_engine.html#a544fee1a5521c3818820f5649e404941">ShEngine::application_properties</a></div><div class="ttdeci">ShApplicationProperties application_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:86</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a611f0426670f3641f85d51950e9cef41"><div class="ttname"><a href="struct_sh_engine.html#a611f0426670f3641f85d51950e9cef41">ShEngine::application_smd</a></div><div class="ttdeci">SmdFileHandle application_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:80</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a623f10841a2eac72f39f53333b2cbea0"><div class="ttname"><a href="struct_sh_engine.html#a623f10841a2eac72f39f53333b2cbea0">ShEngine::thread_pool</a></div><div class="ttdeci">ShThreadPool thread_pool</div><div class="ttdef"><b>Definition</b> shEngine.h:93</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a6e5865161b3d080c8927017b41bcf66b"><div class="ttname"><a href="struct_sh_engine.html#a6e5865161b3d080c8927017b41bcf66b">ShEngine::application_host</a></div><div class="ttdeci">ShApplicationHost application_host</div><div class="ttdef"><b>Definition</b> shEngine.h:92</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a7f277d6a1dfdda77aa1e719da837a59a"><div class="ttname"><a href="struct_sh_engine.html#a7f277d6a1dfdda77aa1e719da837a59a">ShEngine::window</a></div><div class="ttdeci">ShWindow window</div><div class="ttdef"><b>Definition</b> shEngine.h:76</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a86c5eaf97bce63ccb1952b4c3ed79054"><div class="ttname"><a href="struct_sh_engine.html#a86c5eaf97bce63ccb1952b4c3ed79054">ShEngine::scene_properties</a></div><div class="ttdeci">ShSceneProperties scene_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:90</div></div>
-<div class="ttc" id="astruct_sh_engine_html_a8fb1853bef9a0cc20e66134e6015f286"><div class="ttname"><a href="struct_sh_engine.html#a8fb1853bef9a0cc20e66134e6015f286">ShEngine::host_memory_smd</a></div><div class="ttdeci">SmdFileHandle host_memory_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:81</div></div>
-<div class="ttc" id="astruct_sh_engine_html_aa7850ae0941ab4017ae0355064f260f6"><div class="ttname"><a href="struct_sh_engine.html#aa7850ae0941ab4017ae0355064f260f6">ShEngine::ini_smd</a></div><div class="ttdeci">SmdFileHandle ini_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:79</div></div>
-<div class="ttc" id="astruct_sh_engine_html_aafe79497fec8ebd5e4c408b79930648a"><div class="ttname"><a href="struct_sh_engine.html#aafe79497fec8ebd5e4c408b79930648a">ShEngine::load_shared</a></div><div class="ttdeci">uint8_t load_shared</div><div class="ttdef"><b>Definition</b> shEngine.h:91</div></div>
-<div class="ttc" id="astruct_sh_engine_html_aba25e3c04149bfd46a27a26e2f2f58d0"><div class="ttname"><a href="struct_sh_engine.html#aba25e3c04149bfd46a27a26e2f2f58d0">ShEngine::pipeline_pool</a></div><div class="ttdeci">ShVkPipelinePool pipeline_pool</div><div class="ttdef"><b>Definition</b> shEngine.h:94</div></div>
-<div class="ttc" id="astruct_sh_engine_html_ac45c5af3308819139332cafac0117e42"><div class="ttname"><a href="struct_sh_engine.html#ac45c5af3308819139332cafac0117e42">ShEngine::time</a></div><div class="ttdeci">ShTime time</div><div class="ttdef"><b>Definition</b> shEngine.h:77</div></div>
-<div class="ttc" id="astruct_sh_engine_html_adb905253268ca6255842198e78c54c4d"><div class="ttname"><a href="struct_sh_engine.html#adb905253268ca6255842198e78c54c4d">ShEngine::host_memory_properties</a></div><div class="ttdeci">ShHostMemoryProperties host_memory_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:87</div></div>
-<div class="ttc" id="astruct_sh_engine_html_afae29c87a6530652ecc6832bd27a08d1"><div class="ttname"><a href="struct_sh_engine.html#afae29c87a6530652ecc6832bd27a08d1">ShEngine::serial_properties</a></div><div class="ttdeci">ShSerialProperties serial_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:89</div></div>
+<div class="ttc" id="astruct_sh_engine_html"><div class="ttname"><a href="struct_sh_engine.html">ShEngine</a></div><div class="ttdoc">Represents the ShEngine structure, which is the main instance of the engine.</div><div class="ttdef"><b>Definition</b> shEngine.h:78</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a0acef8d8ed3aa259b79e315978f19331"><div class="ttname"><a href="struct_sh_engine.html#a0acef8d8ed3aa259b79e315978f19331">ShEngine::serial_smd</a></div><div class="ttdeci">SmdFileHandle serial_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:87</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a1547b8530fd6a13a0fce5b026523079f"><div class="ttname"><a href="struct_sh_engine.html#a1547b8530fd6a13a0fce5b026523079f">ShEngine::ini_properties</a></div><div class="ttdeci">ShIniProperties ini_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:89</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a267d5c416d95bc2f7f89c7fc14fa42ea"><div class="ttname"><a href="struct_sh_engine.html#a267d5c416d95bc2f7f89c7fc14fa42ea">ShEngine::profiling_timer</a></div><div class="ttdeci">ShProfilingTimer profiling_timer</div><div class="ttdef"><b>Definition</b> shEngine.h:82</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a3f9e3a97580a574f8c133338d39b821f"><div class="ttname"><a href="struct_sh_engine.html#a3f9e3a97580a574f8c133338d39b821f">ShEngine::vulkan_memory_smd</a></div><div class="ttdeci">SmdFileHandle vulkan_memory_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:86</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a456177ea586f381f21c9f887f7566be9"><div class="ttname"><a href="struct_sh_engine.html#a456177ea586f381f21c9f887f7566be9">ShEngine::scene_smd</a></div><div class="ttdeci">SmdFileHandle scene_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:88</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a465327449137d48b28b72c066b6fc70d"><div class="ttname"><a href="struct_sh_engine.html#a465327449137d48b28b72c066b6fc70d">ShEngine::vulkan_memory_properties</a></div><div class="ttdeci">ShVulkanMemoryProperties vulkan_memory_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:92</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a4a4bd3222470daf5f0323871e240def3"><div class="ttname"><a href="struct_sh_engine.html#a4a4bd3222470daf5f0323871e240def3">ShEngine::core</a></div><div class="ttdeci">ShEngineVkCore core</div><div class="ttdef"><b>Definition</b> shEngine.h:79</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a4a8a194d1419f6e7fbac9c2e9a6a5b03"><div class="ttname"><a href="struct_sh_engine.html#a4a8a194d1419f6e7fbac9c2e9a6a5b03">ShEngine::p_ext</a></div><div class="ttdeci">void * p_ext</div><div class="ttdef"><b>Definition</b> shEngine.h:100</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a544fee1a5521c3818820f5649e404941"><div class="ttname"><a href="struct_sh_engine.html#a544fee1a5521c3818820f5649e404941">ShEngine::application_properties</a></div><div class="ttdeci">ShApplicationProperties application_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:90</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a611f0426670f3641f85d51950e9cef41"><div class="ttname"><a href="struct_sh_engine.html#a611f0426670f3641f85d51950e9cef41">ShEngine::application_smd</a></div><div class="ttdeci">SmdFileHandle application_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:84</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a623f10841a2eac72f39f53333b2cbea0"><div class="ttname"><a href="struct_sh_engine.html#a623f10841a2eac72f39f53333b2cbea0">ShEngine::thread_pool</a></div><div class="ttdeci">ShThreadPool thread_pool</div><div class="ttdef"><b>Definition</b> shEngine.h:97</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a6e5865161b3d080c8927017b41bcf66b"><div class="ttname"><a href="struct_sh_engine.html#a6e5865161b3d080c8927017b41bcf66b">ShEngine::application_host</a></div><div class="ttdeci">ShApplicationHost application_host</div><div class="ttdef"><b>Definition</b> shEngine.h:96</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a7f277d6a1dfdda77aa1e719da837a59a"><div class="ttname"><a href="struct_sh_engine.html#a7f277d6a1dfdda77aa1e719da837a59a">ShEngine::window</a></div><div class="ttdeci">ShWindow window</div><div class="ttdef"><b>Definition</b> shEngine.h:80</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a86c5eaf97bce63ccb1952b4c3ed79054"><div class="ttname"><a href="struct_sh_engine.html#a86c5eaf97bce63ccb1952b4c3ed79054">ShEngine::scene_properties</a></div><div class="ttdeci">ShSceneProperties scene_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:94</div></div>
+<div class="ttc" id="astruct_sh_engine_html_a8fb1853bef9a0cc20e66134e6015f286"><div class="ttname"><a href="struct_sh_engine.html#a8fb1853bef9a0cc20e66134e6015f286">ShEngine::host_memory_smd</a></div><div class="ttdeci">SmdFileHandle host_memory_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:85</div></div>
+<div class="ttc" id="astruct_sh_engine_html_aa7850ae0941ab4017ae0355064f260f6"><div class="ttname"><a href="struct_sh_engine.html#aa7850ae0941ab4017ae0355064f260f6">ShEngine::ini_smd</a></div><div class="ttdeci">SmdFileHandle ini_smd</div><div class="ttdef"><b>Definition</b> shEngine.h:83</div></div>
+<div class="ttc" id="astruct_sh_engine_html_aafe79497fec8ebd5e4c408b79930648a"><div class="ttname"><a href="struct_sh_engine.html#aafe79497fec8ebd5e4c408b79930648a">ShEngine::load_shared</a></div><div class="ttdeci">uint8_t load_shared</div><div class="ttdef"><b>Definition</b> shEngine.h:95</div></div>
+<div class="ttc" id="astruct_sh_engine_html_aba25e3c04149bfd46a27a26e2f2f58d0"><div class="ttname"><a href="struct_sh_engine.html#aba25e3c04149bfd46a27a26e2f2f58d0">ShEngine::pipeline_pool</a></div><div class="ttdeci">ShVkPipelinePool pipeline_pool</div><div class="ttdef"><b>Definition</b> shEngine.h:98</div></div>
+<div class="ttc" id="astruct_sh_engine_html_ac45c5af3308819139332cafac0117e42"><div class="ttname"><a href="struct_sh_engine.html#ac45c5af3308819139332cafac0117e42">ShEngine::time</a></div><div class="ttdeci">ShTime time</div><div class="ttdef"><b>Definition</b> shEngine.h:81</div></div>
+<div class="ttc" id="astruct_sh_engine_html_ad8e9d07c92f424d832ba123b30181397"><div class="ttname"><a href="struct_sh_engine.html#ad8e9d07c92f424d832ba123b30181397">ShEngine::gui</a></div><div class="ttdeci">ShGui gui</div><div class="ttdef"><b>Definition</b> shEngine.h:99</div></div>
+<div class="ttc" id="astruct_sh_engine_html_adb905253268ca6255842198e78c54c4d"><div class="ttname"><a href="struct_sh_engine.html#adb905253268ca6255842198e78c54c4d">ShEngine::host_memory_properties</a></div><div class="ttdeci">ShHostMemoryProperties host_memory_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:91</div></div>
+<div class="ttc" id="astruct_sh_engine_html_afae29c87a6530652ecc6832bd27a08d1"><div class="ttname"><a href="struct_sh_engine.html#afae29c87a6530652ecc6832bd27a08d1">ShEngine::serial_properties</a></div><div class="ttdeci">ShSerialProperties serial_properties</div><div class="ttdef"><b>Definition</b> shEngine.h:93</div></div>
 <div class="ttc" id="astruct_sh_engine_vk_core_html"><div class="ttname"><a href="struct_sh_engine_vk_core.html">ShEngineVkCore</a></div><div class="ttdef"><b>Definition</b> shEngineVkCore.h:21</div></div>
 <div class="ttc" id="astruct_sh_host_memory_properties_html"><div class="ttname"><a href="struct_sh_host_memory_properties.html">ShHostMemoryProperties</a></div><div class="ttdoc">Structure representing properties related to host memory.</div><div class="ttdef"><b>Definition</b> shEnvironment.h:89</div></div>
 <div class="ttc" id="astruct_sh_ini_properties_html"><div class="ttname"><a href="struct_sh_ini_properties.html">ShIniProperties</a></div><div class="ttdoc">Structure representing properties related to the initialization (INI) file.</div><div class="ttdef"><b>Definition</b> shEnvironment.h:47</div></div>

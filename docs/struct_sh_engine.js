@@ -4,6 +4,7 @@ var struct_sh_engine =
     [ "application_properties", "struct_sh_engine.html#a544fee1a5521c3818820f5649e404941", null ],
     [ "application_smd", "struct_sh_engine.html#a611f0426670f3641f85d51950e9cef41", null ],
     [ "core", "struct_sh_engine.html#a4a4bd3222470daf5f0323871e240def3", null ],
+    [ "gui", "struct_sh_engine.html#ad8e9d07c92f424d832ba123b30181397", null ],
     [ "host_memory_properties", "struct_sh_engine.html#adb905253268ca6255842198e78c54c4d", null ],
     [ "host_memory_smd", "struct_sh_engine.html#a8fb1853bef9a0cc20e66134e6015f286", null ],
     [ "ini_properties", "struct_sh_engine.html#a1547b8530fd6a13a0fce5b026523079f", null ],

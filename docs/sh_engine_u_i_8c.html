@@ -129,14 +129,45 @@ $(document).ready(function(){initNavTree('sh_engine_u_i_8c.html',''); initResiza
 <div class="textblock"><code>#include &quot;<a class="el" href="sh_engine_u_i_8h_source.html">shengine/shEngineUI.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="sh_engine_8h_source.html">shengine/shEngine.h</a>&quot;</code><br />
 <code>#include &lt;shgui/shgui.h&gt;</code><br />
+<code>#include &lt;shgui/shgui-font.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab73daec68863078608fbd6503a4c8bd0" id="r_ab73daec68863078608fbd6503a4c8bd0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sh_engine_u_i_8c.html#ab73daec68863078608fbd6503a4c8bd0">shEngineGuiSetup</a> (<a class="el" href="struct_sh_engine.html">ShEngine</a> *p_engine)</td></tr>
 <tr class="memdesc:ab73daec68863078608fbd6503a4c8bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the graphical user interface for the <code>shengine</code> module.  <br /></td></tr>
 <tr class="separator:ab73daec68863078608fbd6503a4c8bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72da3d369c6113522cdc03aae1cae4ec" id="r_a72da3d369c6113522cdc03aae1cae4ec"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sh_engine_u_i_8c.html#a72da3d369c6113522cdc03aae1cae4ec">shEngineGuiRelease</a> (<a class="el" href="struct_sh_engine.html">ShEngine</a> *p_engine)</td></tr>
+<tr class="memdesc:a72da3d369c6113522cdc03aae1cae4ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the graphical user interface and frees gui-related memory.  <br /></td></tr>
+<tr class="separator:a72da3d369c6113522cdc03aae1cae4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a72da3d369c6113522cdc03aae1cae4ec" name="a72da3d369c6113522cdc03aae1cae4ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72da3d369c6113522cdc03aae1cae4ec">&#9670;&#160;</a></span>shEngineGuiRelease()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t shEngineGuiRelease </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_sh_engine.html">ShEngine</a> *&#160;</td>
+          <td class="paramname"><em>p_engine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Releases the graphical user interface and frees gui-related memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_engine</td><td>Valid pointer to a <a class="el" href="struct_sh_engine.html">ShEngine</a> structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Integer status code indicating the success or failure of the operation. </dd></dl>
+
+</div>
+</div>
 <a id="ab73daec68863078608fbd6503a4c8bd0" name="ab73daec68863078608fbd6503a4c8bd0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab73daec68863078608fbd6503a4c8bd0">&#9670;&#160;</a></span>shEngineGuiSetup()</h2>
 

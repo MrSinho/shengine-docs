@@ -122,6 +122,7 @@ $(document).ready(function(){initNavTree('sh_engine_u_i_8h.html',''); initResiza
 
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">shEngineUI.h File Reference</div></div>
 </div><!--header-->
@@ -129,19 +130,77 @@ $(document).ready(function(){initNavTree('sh_engine_u_i_8h.html',''); initResiza
 
 <p>Declares functions related to setting up the graphical user interface (GUI) for the <code>shengine</code> module.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="sh_engine_8h_source.html">shengine/shEngine.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;shgui/shgui.h&gt;</code><br />
 </div>
 <p><a href="sh_engine_u_i_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af38cfb138dfa400d6e7182c1060a47de" id="r_af38cfb138dfa400d6e7182c1060a47de"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_sh_engine.html">ShEngine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sh_engine_u_i_8h.html#af38cfb138dfa400d6e7182c1060a47de">ShEngine</a></td></tr>
+<tr class="separator:af38cfb138dfa400d6e7182c1060a47de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab73daec68863078608fbd6503a4c8bd0" id="r_ab73daec68863078608fbd6503a4c8bd0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sh_engine_u_i_8h.html#ab73daec68863078608fbd6503a4c8bd0">shEngineGuiSetup</a> (<a class="el" href="struct_sh_engine.html">ShEngine</a> *p_engine)</td></tr>
 <tr class="memdesc:ab73daec68863078608fbd6503a4c8bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the graphical user interface for the <code>shengine</code> module.  <br /></td></tr>
 <tr class="separator:ab73daec68863078608fbd6503a4c8bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72da3d369c6113522cdc03aae1cae4ec" id="r_a72da3d369c6113522cdc03aae1cae4ec"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sh_engine_u_i_8h.html#a72da3d369c6113522cdc03aae1cae4ec">shEngineGuiRelease</a> (<a class="el" href="struct_sh_engine.html">ShEngine</a> *p_engine)</td></tr>
+<tr class="memdesc:a72da3d369c6113522cdc03aae1cae4ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the graphical user interface and frees gui-related memory.  <br /></td></tr>
+<tr class="separator:a72da3d369c6113522cdc03aae1cae4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Declares functions related to setting up the graphical user interface (GUI) for the <code>shengine</code> module. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="af38cfb138dfa400d6e7182c1060a47de" name="af38cfb138dfa400d6e7182c1060a47de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af38cfb138dfa400d6e7182c1060a47de">&#9670;&#160;</a></span>ShEngine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_sh_engine.html">ShEngine</a> <a class="el" href="struct_sh_engine.html">ShEngine</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a72da3d369c6113522cdc03aae1cae4ec" name="a72da3d369c6113522cdc03aae1cae4ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72da3d369c6113522cdc03aae1cae4ec">&#9670;&#160;</a></span>shEngineGuiRelease()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t shEngineGuiRelease </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_sh_engine.html">ShEngine</a> *&#160;</td>
+          <td class="paramname"><em>p_engine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Releases the graphical user interface and frees gui-related memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_engine</td><td>Valid pointer to a <a class="el" href="struct_sh_engine.html">ShEngine</a> structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Integer status code indicating the success or failure of the operation. </dd></dl>
+
+</div>
+</div>
 <a id="ab73daec68863078608fbd6503a4c8bd0" name="ab73daec68863078608fbd6503a4c8bd0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab73daec68863078608fbd6503a4c8bd0">&#9670;&#160;</a></span>shEngineGuiSetup()</h2>
 

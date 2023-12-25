@@ -19,5 +19,6 @@ var searchData=
   ['buffers_5fusage_5ftransfer_5fsrc_5fbit_16',['buffers_usage_transfer_src_bit',['../struct_sh_vulkan_memory_properties.html#adc69af7776b6a03f2c682a3eaa4c9e8f',1,'ShVulkanMemoryProperties']]],
   ['buffers_5fusage_5funiform_5fbuffer_5fbit_17',['buffers_usage_uniform_buffer_bit',['../struct_sh_vulkan_memory_properties.html#a605b522990a07bdbb567cced0c1ff144',1,'ShVulkanMemoryProperties']]],
   ['buffers_5fusage_5fvertex_5fbuffer_5fbit_18',['buffers_usage_vertex_buffer_bit',['../struct_sh_vulkan_memory_properties.html#a7e964ce145055cf122b53dc090dfa190',1,'ShVulkanMemoryProperties']]],
-  ['build_20logs_19',['build logs',['../md__d_1_2home_2desktop_2github_2shengine_2_8shci_2linux_2log.html',1,'Linux build logs'],['../md__d_1_2home_2desktop_2github_2shengine_2_8shci_2windows_2log.html',1,'Windows build logs']]]
+  ['build_19',['Build',['../md__d_1_2home_2desktop_2github_2shengine_2docs_2src_2noise-example.html#autotoc_md24',1,'']]],
+  ['build_20logs_20',['build logs',['../md__d_1_2home_2desktop_2github_2shengine_2_8shci_2linux_2log.html',1,'Linux build logs'],['../md__d_1_2home_2desktop_2github_2shengine_2_8shci_2windows_2log.html',1,'Windows build logs']]]
 ];

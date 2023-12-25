@@ -125,11 +125,15 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md24">Application tour</a></li>
+<ul><li class="level1"><a href="#autotoc_md24">Build</a></li>
+<li class="level1"><a href="#autotoc_md25">Application tour</a></li>
+<li class="level1"><a href="#autotoc_md26">Example parameters</a></li>
 </ul>
 </div>
 <div class="textblock"><p><a class="anchor" id="autotoc_md23"></a></p>
 <p><img src="../media/noise-3.png" alt="" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md24"></a>
+Build</h1>
 <p>Using Windows (run as admin): </p><div class="fragment"><div class="line">python export-application.py name=noise target=EXECUTABLE path=applications/noise</div>
 <div class="line">cd applications/noise/windows/build</div>
 <div class="line">cmake --build .</div>
@@ -138,7 +142,7 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">cd applications/noise/linux/build</div>
 <div class="line">sudo cmake --build .</div>
 <div class="line">sudo cp ../../ini.smd ../bin/ini.smd</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
 Application tour</h1>
 <p>To change the values of the parameters <code>S</code> <code>A</code> and <code>B</code>:</p>
 <table class="markdownTable">
@@ -151,6 +155,7 @@ Application tour</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>B</code>   </td><td class="markdownTableBodyNone"><em>X</em>   </td><td class="markdownTableBodyNone"><em>Z</em>   </td></tr>
 </table>
+<p>To see the parameters values, or to enable/disable the UI, press <code>H</code>.</p>
 <p>Fragment shader algorithm:</p>
 <p>\(  c = \cos(\pi x y s)\)</p>
 <p>\(
@@ -160,8 +165,9 @@ RGB_{raw} = \begin{bmatrix}
 \cos(\pi  s  {x \over y}) + c\\
 \end{bmatrix}
 \)</p>
-<p>Every 2 seconds the parameters values get saved at <code>applications/noise/smd/noise-interface.smd</code>, which is a text-based interface written in an <a href="https://github.com/mrsinho/smd"><code>smd</code></a> format, from which you can read the parameters values in runtime. You can export these values to <code>applications/noise/smd/noise-saved.smd</code> by pressing <code>LEFT_CTRL</code> + <code>E</code>. When the application is reloaded (<code>LEFT_CTRL</code> + <code>R</code>) the default parameters written at <code>applications/noise/smd/noise-recovery.smd</code> will be read. You can load the exported values by pressing <code>LEFT_CTRL</code> + <code>L</code>.</p>
-<hr  />
+<p>You can export these values to <code>applications/noise/smd/noise-saved.smd</code> by pressing <code>LEFT_CTRL</code> + <code>E</code>. When the application is reloaded (<code>LEFT_CTRL</code> + <code>R</code>) the default parameters written at <code>applications/noise/smd/noise-recovery.smd</code> will be read. You can load the exported values by pressing <code>LEFT_CTRL</code> + <code>L</code>.</p>
+<h1><a class="anchor" id="autotoc_md26"></a>
+Example parameters</h1>
 <p>\(  s = {1 \over 2} \)</p>
 <p>\(  a = 1\)</p>
 <p>\(  b = -2,5\)</p>
