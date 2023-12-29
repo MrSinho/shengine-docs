@@ -56,7 +56,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">shengine<span id="projectnumber">&#160;v1.0.0</span>
+   <div id="projectname">shengine<span id="projectnumber">&#160;pre-release</span>
    </div>
    <div id="projectbrief">shengine by mrsinho</div>
   </td>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">min frequency : 0.0 MHz</div>
 <div class="line">max frequency : 3500.0 MHz</div>
 <div class="line">cores         : 4</div>
-</div><!-- fragment --><p>build ran for <code>137.58 s</code> and terminated with exit code <code>0</code></p>
+</div><!-- fragment --><p>build ran for <code>172.65 s</code> and terminated with exit code <code>0</code></p>
 <hr  />
 <div class="fragment"><div class="line">&gt; .shci/windows/prerequisites-output.txt (</div>
 <div class="line">    choco install -y curl mingw cmake</div>
@@ -178,6 +178,10 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line"> Use --force to reinstall, specify a version to install, or try upgrade.</div>
 <div class="line"> - mingw - mingw v12.2.0.03042023 already installed.</div>
 <div class="line"> Use --force to reinstall, specify a version to install, or try upgrade.</div>
+<div class="line"> </div>
+<div class="line">Enjoy using Chocolatey? Explore more amazing features to take your</div>
+<div class="line">experience to the next level at</div>
+<div class="line"> https://chocolatey.org/compare</div>
 </div><!-- fragment --><hr  />
 <div class="fragment"><div class="line">&gt; .shci/windows/build-output.txt (</div>
 <div class="line">    python export-application.py name=triangle target=EXECUTABLE path=applications/triangle</div>
@@ -187,17 +191,43 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">    cd ../../../noise/build/windows</div>
 <div class="line">    cmake --build .</div>
 <div class="line">)</div>
-</div><!-- fragment --><div class="fragment"><div class="line">-- Selecting Windows SDK version 10.0.22000.0 to target Windows 10.0.22621.</div>
+</div><!-- fragment --><div class="fragment"><div class="line">-- Building for: Visual Studio 17 2022</div>
+<div class="line">-- Selecting Windows SDK version 10.0.22000.0 to target Windows 10.0.22621.</div>
+<div class="line">-- The C compiler identification is MSVC 19.37.32822.0</div>
+<div class="line">-- Detecting C compiler ABI info</div>
+<div class="line">-- Detecting C compiler ABI info - done</div>
+<div class="line">-- Check for working C compiler: D:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe - skipped</div>
+<div class="line">-- Detecting C compile features</div>
+<div class="line">-- Detecting C compile features - done</div>
+<div class="line">-- SH_ENGINE_VERSION       : pre-release</div>
+<div class="line">-- SH_ENGINE_ROOT_DIR      : D:/home/desktop/github/shengine</div>
+<div class="line">-- SH_ENGINE_BINARIES_DIR  : D:/home/desktop/github/shengine/bin</div>
+<div class="line">-- SH_APPLICATION_PATH     : D:/home/desktop/github/shengine/applications/triangle</div>
+<div class="line">-- SH_APPLICATION_NAME     : triangle</div>
+<div class="line">-- Found Vulkan: D:/lib/vulkan-sdk-1.3.261.1/Lib/vulkan-1.lib (found version &quot;1.3.261&quot;) found components: glslc glslangValidator </div>
 <div class="line">-- shvulkan message: found Vulkan</div>
 <div class="line">-- shvulkan message: Vulkan_INCLUDE_DIR: D:/lib/vulkan-sdk-1.3.261.1/Include</div>
 <div class="line">-- shvulkan message: Vulkan_LIBRARY:     D:/lib/vulkan-sdk-1.3.261.1/Lib/vulkan-1.lib</div>
+<div class="line">-- Performing Test CMAKE_HAVE_LIBC_PTHREAD</div>
+<div class="line">-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed</div>
+<div class="line">-- Looking for pthread_create in pthreads</div>
+<div class="line">-- Looking for pthread_create in pthreads - not found</div>
+<div class="line">-- Looking for pthread_create in pthread</div>
+<div class="line">-- Looking for pthread_create in pthread - not found</div>
+<div class="line">-- Found Threads: TRUE  </div>
 <div class="line">-- Found Doxygen: D:/bin/doxygen/bin/doxygen.exe (found version &quot;1.9.8&quot;) found components: doxygen </div>
 <div class="line">-- Including Win32 support</div>
 <div class="line">-- Found Doxygen: D:/bin/doxygen/bin/doxygen.exe (found version &quot;1.9.8&quot;) found components: doxygen missing components: dot</div>
+<div class="line">-- Configuring D:/home/desktop/github/shengine/collection/externals/shgui/docs/Doxyfile from D:/home/desktop/github/shengine/collection/externals/shgui/docs/Doxyfile.in</div>
+<div class="line">-- Creating custom docs command: D:/bin/doxygen/bin/doxygen.exe D:/home/desktop/github/shengine/collection/externals/shgui/docs/Doxyfile</div>
+<div class="line">-- SMD_VERSION       : pre-release</div>
+<div class="line">-- SMD_ROOT_DIR      : D:/home/desktop/github/shengine/collection/externals/smd</div>
+<div class="line">-- SMD_BINARIES_DIR  : D:/home/desktop/github/shengine/collection/externals/smd/bin</div>
+<div class="line">-- SMD_BUILD_EXAMPLE : OFF</div>
 <div class="line">-- Configuring D:/home/desktop/github/shengine/docs/Doxyfile from D:/home/desktop/github/shengine/docs/Doxyfile.in</div>
 <div class="line">-- Creating custom docs command: D:/bin/doxygen/bin/doxygen.exe D:/home/desktop/github/shengine/docs/Doxyfile</div>
-<div class="line">-- Configuring done (1.6s)</div>
-<div class="line">-- Generating done (4.7s)</div>
+<div class="line">-- Configuring done (15.0s)</div>
+<div class="line">-- Generating done (1.8s)</div>
 <div class="line">-- Build files have been written to: D:/home/desktop/github/shengine/applications/triangle/build/windows</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">EXAMPLE CALL: python export-application.py name=noise target=SHARED</div>
@@ -291,7 +321,6 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line"> </div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Os path: D:/home/desktop/github/shengine/applications/triangle/windows</div>
 <div class="line">Build path: D:/home/desktop/github/shengine/applications/triangle/build/windows</div>
 <div class="line"> </div>
 <div class="line">--------------------------------------------------------------------------------</div>
@@ -305,17 +334,43 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">    cd D:/home/desktop/github/shengine/applications/triangle/build/windows &amp;&amp; cmake D:/home/desktop/github/shengine -DSH_ENGINE_BUILD_EDITOR=ON -DSH_APPLICATION_PATH=D:/home/desktop/github/shengine/applications/triangle -DSH_APPLICATION_NAME=triangle -DSH_APPLICATION_BINARY_TYPE=EXECUTABLE </div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line"> </div>
+<div class="line">-- Building for: Visual Studio 17 2022</div>
 <div class="line">-- Selecting Windows SDK version 10.0.22000.0 to target Windows 10.0.22621.</div>
+<div class="line">-- The C compiler identification is MSVC 19.37.32822.0</div>
+<div class="line">-- Detecting C compiler ABI info</div>
+<div class="line">-- Detecting C compiler ABI info - done</div>
+<div class="line">-- Check for working C compiler: D:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe - skipped</div>
+<div class="line">-- Detecting C compile features</div>
+<div class="line">-- Detecting C compile features - done</div>
+<div class="line">-- SH_ENGINE_VERSION       : pre-release</div>
+<div class="line">-- SH_ENGINE_ROOT_DIR      : D:/home/desktop/github/shengine</div>
+<div class="line">-- SH_ENGINE_BINARIES_DIR  : D:/home/desktop/github/shengine/bin</div>
+<div class="line">-- SH_APPLICATION_PATH     : D:/home/desktop/github/shengine/applications/noise</div>
+<div class="line">-- SH_APPLICATION_NAME     : noise</div>
+<div class="line">-- Found Vulkan: D:/lib/vulkan-sdk-1.3.261.1/Lib/vulkan-1.lib (found version &quot;1.3.261&quot;) found components: glslc glslangValidator </div>
 <div class="line">-- shvulkan message: found Vulkan</div>
 <div class="line">-- shvulkan message: Vulkan_INCLUDE_DIR: D:/lib/vulkan-sdk-1.3.261.1/Include</div>
 <div class="line">-- shvulkan message: Vulkan_LIBRARY:     D:/lib/vulkan-sdk-1.3.261.1/Lib/vulkan-1.lib</div>
+<div class="line">-- Performing Test CMAKE_HAVE_LIBC_PTHREAD</div>
+<div class="line">-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed</div>
+<div class="line">-- Looking for pthread_create in pthreads</div>
+<div class="line">-- Looking for pthread_create in pthreads - not found</div>
+<div class="line">-- Looking for pthread_create in pthread</div>
+<div class="line">-- Looking for pthread_create in pthread - not found</div>
+<div class="line">-- Found Threads: TRUE  </div>
 <div class="line">-- Found Doxygen: D:/bin/doxygen/bin/doxygen.exe (found version &quot;1.9.8&quot;) found components: doxygen </div>
 <div class="line">-- Including Win32 support</div>
 <div class="line">-- Found Doxygen: D:/bin/doxygen/bin/doxygen.exe (found version &quot;1.9.8&quot;) found components: doxygen missing components: dot</div>
+<div class="line">-- Configuring D:/home/desktop/github/shengine/collection/externals/shgui/docs/Doxyfile from D:/home/desktop/github/shengine/collection/externals/shgui/docs/Doxyfile.in</div>
+<div class="line">-- Creating custom docs command: D:/bin/doxygen/bin/doxygen.exe D:/home/desktop/github/shengine/collection/externals/shgui/docs/Doxyfile</div>
+<div class="line">-- SMD_VERSION       : pre-release</div>
+<div class="line">-- SMD_ROOT_DIR      : D:/home/desktop/github/shengine/collection/externals/smd</div>
+<div class="line">-- SMD_BINARIES_DIR  : D:/home/desktop/github/shengine/collection/externals/smd/bin</div>
+<div class="line">-- SMD_BUILD_EXAMPLE : OFF</div>
 <div class="line">-- Configuring D:/home/desktop/github/shengine/docs/Doxyfile from D:/home/desktop/github/shengine/docs/Doxyfile.in</div>
 <div class="line">-- Creating custom docs command: D:/bin/doxygen/bin/doxygen.exe D:/home/desktop/github/shengine/docs/Doxyfile</div>
-<div class="line">-- Configuring done (0.7s)</div>
-<div class="line">-- Generating done (2.8s)</div>
+<div class="line">-- Configuring done (18.9s)</div>
+<div class="line">-- Generating done (1.1s)</div>
 <div class="line">-- Build files have been written to: D:/home/desktop/github/shengine/applications/noise/build/windows</div>
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line">EXAMPLE CALL: python export-application.py name=noise target=SHARED</div>
@@ -409,7 +464,6 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">--------------------------------------------------------------------------------</div>
 <div class="line"> </div>
 <div class="line">--------------------------------------------------------------------------------</div>
-<div class="line">Os path: D:/home/desktop/github/shengine/applications/noise/windows</div>
 <div class="line">Build path: D:/home/desktop/github/shengine/applications/noise/build/windows</div>
 <div class="line"> </div>
 <div class="line">--------------------------------------------------------------------------------</div>
@@ -427,7 +481,7 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line"> </div>
 <div class="line">  Checking Build System</div>
 <div class="line">  Generating HTML documentation</div>
-<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/glfw/docs/CMakeLists.txt</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/externals/glfw/docs/CMakeLists.txt</div>
 <div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/cglm/CMakeLists.txt</div>
 <div class="line">  euler.c</div>
 <div class="line">  affine.c</div>
@@ -478,8 +532,9 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">  project_no.c</div>
 <div class="line">  project_zo.c</div>
 <div class="line">  Generazione del codice in corso...</div>
-<div class="line">  cglm.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\cglm.lib</div>
-<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/glfw/src/CMakeLists.txt</div>
+<div class="line">     Creazione della libreria D:/home/desktop/github/shengine/bin/windows/Debug/cglm.lib e dell&#39;oggetto D:/home/desktop/github/shengine/bin/windows/Debug/cglm.exp</div>
+<div class="line">  cglm.vcxproj -&gt; D:\home\desktop\github\shengine\applications\triangle\build\windows\collection\externals\cglm\Debug\cglm-0.dll</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/externals/glfw/src/CMakeLists.txt</div>
 <div class="line">  context.c</div>
 <div class="line">  init.c</div>
 <div class="line">  input.c</div>
@@ -505,6 +560,9 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">  wgl_context.c</div>
 <div class="line">  Generazione del codice in corso...</div>
 <div class="line">  glfw.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\glfw3.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/externals/native-export/c/CMakeLists.txt</div>
+<div class="line">  native-export.c</div>
+<div class="line">  native-export.vcxproj -&gt; D:\home\desktop\github\shengine\bin\Debug\native-export.lib</div>
 <div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/plyimporter/CMakeLists.txt</div>
 <div class="line">  plyImporter.c</div>
 <div class="line">  plyimporter.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\plyimporter.lib</div>
@@ -525,9 +583,14 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/CMakeLists.txt</div>
 <div class="line">  shApplicationHost.c</div>
 <div class="line">  shapplication-host.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shapplication-host.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/CMakeLists.txt</div>
+<div class="line">  shgui.c</div>
+<div class="line">  shgui-font.c</div>
+<div class="line">  Generazione del codice in corso...</div>
+<div class="line">  shgui.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shgui.lib</div>
 <div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shserial/CMakeLists.txt</div>
 <div class="line">  shSerial.c</div>
-<div class="line">  shserial.vcxproj -&gt; D:\home\desktop\github\shengine\collection\externals\shserial\bin\Debug\shserial.lib</div>
+<div class="line">  shserial.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shserial.lib</div>
 <div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/CMakeLists.txt</div>
 <div class="line">  shEngine.c</div>
 <div class="line">  shInput.c</div>
@@ -536,11 +599,18 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">  shWindow.c</div>
 <div class="line">  shLinearAlgebra.c</div>
 <div class="line">  shScene.c</div>
+<div class="line">  shEngineUI.c</div>
 <div class="line">  Generazione del codice in corso...</div>
-<div class="line">  shengine.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shengine.lib</div>
+<div class="line">  shengine.vcxproj -&gt; D:\home\desktop\github\shengine\applications\triangle\build\windows\collection\Debug\shengine.lib</div>
 <div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/CMakeLists.txt</div>
 <div class="line">  shEditor.c</div>
 <div class="line">  sheditor.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\sheditor.exe</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/CMakeLists.txt</div>
+<div class="line">  shgui-app.c</div>
+<div class="line">  shgui-app.vcxproj -&gt; D:\home\desktop\github\shengine\collection\externals\shgui\bin\windows\Debug\shgui-app.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/CMakeLists.txt</div>
+<div class="line">  export-shaders.c</div>
+<div class="line">  shgui-export-shaders.vcxproj -&gt; D:\home\desktop\github\shengine\collection\externals\shgui\bin\windows\Debug\shgui-export-shaders.exe</div>
 <div class="line">  Building Custom Rule D:/home/desktop/github/shengine/applications/triangle/CMakeLists.txt</div>
 <div class="line">  triangle.c</div>
 <div class="line">  shEditor.c</div>
@@ -551,6 +621,9 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">Versione di MSBuild L17.7.2+d6990bcfa per .NET Framework</div>
 <div class="line"> </div>
 <div class="line">  Checking Build System</div>
+<div class="line">  Generating HTML documentation</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/externals/glfw/docs/CMakeLists.txt</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/cglm/CMakeLists.txt</div>
 <div class="line">  euler.c</div>
 <div class="line">  affine.c</div>
 <div class="line">  io.c</div>
@@ -600,23 +673,94 @@ $(document).ready(function(){initNavTree('md__d_1_2home_2desktop_2github_2shengi
 <div class="line">  project_no.c</div>
 <div class="line">  project_zo.c</div>
 <div class="line">  Generazione del codice in corso...</div>
-<div class="line">  cglm.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\cglm.lib</div>
+<div class="line">     Creazione della libreria D:/home/desktop/github/shengine/bin/windows/Debug/cglm.lib e dell&#39;oggetto D:/home/desktop/github/shengine/bin/windows/Debug/cglm.exp</div>
+<div class="line">  cglm.vcxproj -&gt; D:\home\desktop\github\shengine\applications\noise\build\windows\collection\externals\cglm\Debug\cglm-0.dll</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/externals/glfw/src/CMakeLists.txt</div>
+<div class="line">  context.c</div>
+<div class="line">  init.c</div>
+<div class="line">  input.c</div>
+<div class="line">  monitor.c</div>
+<div class="line">  platform.c</div>
+<div class="line">  vulkan.c</div>
+<div class="line">  window.c</div>
+<div class="line">  egl_context.c</div>
+<div class="line">  osmesa_context.c</div>
+<div class="line">  null_init.c</div>
+<div class="line">  null_monitor.c</div>
+<div class="line">  null_window.c</div>
+<div class="line">  null_joystick.c</div>
+<div class="line">  win32_module.c</div>
+<div class="line">  win32_time.c</div>
+<div class="line">  win32_thread.c</div>
+<div class="line">  win32_init.c</div>
+<div class="line">  win32_joystick.c</div>
+<div class="line">  win32_monitor.c</div>
+<div class="line">  win32_window.c</div>
+<div class="line">  Generazione del codice in corso...</div>
+<div class="line">  Compilazione in corso...</div>
+<div class="line">  wgl_context.c</div>
+<div class="line">  Generazione del codice in corso...</div>
 <div class="line">  glfw.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\glfw3.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/externals/native-export/c/CMakeLists.txt</div>
+<div class="line">  native-export.c</div>
+<div class="line">  native-export.vcxproj -&gt; D:\home\desktop\github\shengine\bin\Debug\native-export.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/plyimporter/CMakeLists.txt</div>
+<div class="line">  plyImporter.c</div>
 <div class="line">  plyimporter.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\plyimporter.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shvulkan/CMakeLists.txt</div>
+<div class="line">  shVulkan.c</div>
 <div class="line">  shvulkan.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shvulkan.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/smd/CMakeLists.txt</div>
+<div class="line">  smd.c</div>
 <div class="line">  smd.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\smd.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/CMakeLists.txt</div>
+<div class="line">  shEnvironment.c</div>
+<div class="line">  shFileUtilities.c</div>
+<div class="line">  Generazione del codice in corso...</div>
 <div class="line">  shenvironment.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shenvironment.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shthreads/CMakeLists.txt</div>
+<div class="line">  shthreads.c</div>
 <div class="line">  shthreads.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shthreads.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/CMakeLists.txt</div>
+<div class="line">  shApplicationHost.c</div>
 <div class="line">  shapplication-host.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shapplication-host.lib</div>
-<div class="line">  shserial.vcxproj -&gt; D:\home\desktop\github\shengine\collection\externals\shserial\bin\Debug\shserial.lib</div>
-<div class="line">  shengine.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shengine.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/CMakeLists.txt</div>
+<div class="line">  shgui.c</div>
+<div class="line">  shgui-font.c</div>
+<div class="line">  Generazione del codice in corso...</div>
+<div class="line">  shgui.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shgui.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shserial/CMakeLists.txt</div>
+<div class="line">  shSerial.c</div>
+<div class="line">  shserial.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\shserial.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/CMakeLists.txt</div>
+<div class="line">  shEngine.c</div>
+<div class="line">  shInput.c</div>
+<div class="line">  shTime.c</div>
+<div class="line">  shProfiling.c</div>
+<div class="line">  shWindow.c</div>
+<div class="line">  shLinearAlgebra.c</div>
+<div class="line">  shScene.c</div>
+<div class="line">  shEngineUI.c</div>
+<div class="line">  Generazione del codice in corso...</div>
+<div class="line">  shengine.vcxproj -&gt; D:\home\desktop\github\shengine\applications\noise\build\windows\collection\Debug\shengine.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/applications/noise/CMakeLists.txt</div>
+<div class="line">  noise.c</div>
+<div class="line">  shEditor.c</div>
+<div class="line">  Generazione del codice in corso...</div>
 <div class="line">     Creazione della libreria D:/home/desktop/github/shengine/applications/noise/bin/windows/Debug/noise.lib e dell&#39;oggetto D:/home/desktop/github/shengine/applications/noise/bin/windows/Debug/noise.exp</div>
 <div class="line">  noise.vcxproj -&gt; D:\home\desktop\github\shengine\applications\noise\bin\windows\Debug\noise.exe</div>
-<div class="line">  LINK : D:\home\desktop\github\shengine\bin\windows\Debug\sheditor.exe non trovato o non compilato dall&#39;ultimo collegamento incrementale; verr… eseguito il collegamento completo</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/CMakeLists.txt</div>
+<div class="line">  shEditor.c</div>
 <div class="line">  sheditor.vcxproj -&gt; D:\home\desktop\github\shengine\bin\windows\Debug\sheditor.exe</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/CMakeLists.txt</div>
+<div class="line">  shgui-app.c</div>
+<div class="line">  shgui-app.vcxproj -&gt; D:\home\desktop\github\shengine\collection\externals\shgui\bin\windows\Debug\shgui-app.lib</div>
+<div class="line">  Building Custom Rule D:/home/desktop/github/shengine/collection/externals/shgui/CMakeLists.txt</div>
+<div class="line">  export-shaders.c</div>
+<div class="line">  shgui-export-shaders.vcxproj -&gt; D:\home\desktop\github\shengine\collection\externals\shgui\bin\windows\Debug\shgui-export-shaders.exe</div>
 <div class="line">  Building Custom Rule D:/home/desktop/github/shengine/CMakeLists.txt</div>
 </div><!-- fragment --><hr  />
-<p>build ran for <code>137.58 s</code> and terminated with exit code <code>0</code></p>
+<p>build ran for <code>172.65 s</code> and terminated with exit code <code>0</code></p>
 <hr  />
  </div></div><!-- contents -->
 </div><!-- PageDoc -->
